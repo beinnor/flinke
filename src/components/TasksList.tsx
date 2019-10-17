@@ -19,14 +19,14 @@ const TasksList: FunctionComponent<Props> = ({ tasks, onDeleteCompleted, markCom
 
   return (
     <>
-  <ul>
-    {tasks.map(task => (
-      <TasksListItem key={task.id} task={task} markCompleted={markCompleted} />
-    ))}
-  </ul>
-  {tasks.length > 0 ? deleteButton : ''}
-  </>
-);
+      <ul>
+        {tasks.map(task => (
+          <TasksListItem key={task.id} task={task} markCompleted={markCompleted} />
+        ))}
+      </ul>
+      {tasks.length > 0 ? deleteButton : ''}
+    </>
+  );
 
 };
 

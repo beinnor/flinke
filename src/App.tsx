@@ -15,35 +15,35 @@ const App: FunctionComponent = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const addTask = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
-  
-  setTasks([...tasks, newTask]);
+    event.preventDefault();
+
+    setTasks([...tasks, newTask]);
     setNewTask({
       id: tasks.length,
       name: "",
       completed: false,
     });
-};
+  };
 
-const handleTaskChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  
-  setNewTask({ id: tasks === undefined ? 0 : tasks.length, name: event.target.value, completed: false });
-};
+  const handleTaskChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    setNewTask({ id: tasks === undefined ? 0 : tasks.length, name: event.target.value, completed: false });
+  };
 
   const markCompleted = (taskToMarkCompleted: Task) => {
-    
+
     const tempTasks: Task[] = tasks;
     const taskIndex: number = tasks.findIndex(task => task.id === taskToMarkCompleted.id);
-    
+
     tempTasks[taskIndex].completed = tempTasks[taskIndex].completed === false ? true : false;
 
     setTasks([...tempTasks]);
-}
+  }
 
-const deleteCompletedTasks = () => {
+  const deleteCompletedTasks = () => {
 
-  setTasks(tasks.filter(task => task.completed === false));
-};
+    setTasks(tasks.filter(task => task.completed === false));
+  };
 
   return (
     <div>
@@ -53,7 +53,7 @@ const deleteCompletedTasks = () => {
         onAdd={addTask}
         onChange={handleTaskChange}
       />
-      <TasksList tasks={tasks} markCompleted={markCompleted} onDeleteCompleted={deleteCompletedTasks}/>
+      <TasksList tasks={tasks} markCompleted={markCompleted} onDeleteCompleted={deleteCompletedTasks} />
     </div>
   );
 }

@@ -4,12 +4,12 @@ import { Task } from "../models/task";
 
 interface Props {
   task: Task;
-  
+
   markCompleted: (task: Task) => void;
 }
 
 export const TasksListItem: FunctionComponent<Props> = ({ task, markCompleted }) => {
-  
+
 
   const onChange = () => {
     markCompleted(task);
@@ -22,7 +22,7 @@ export const TasksListItem: FunctionComponent<Props> = ({ task, markCompleted })
         name="isCompleted"
         type="checkbox"
         onChange={onChange} />
-      
+
     </li>
   );
 };
